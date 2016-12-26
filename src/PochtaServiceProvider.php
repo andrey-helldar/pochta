@@ -19,8 +19,8 @@ class PochtaServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->mergeConfigFrom(__DIR__ . '/config/pochta.php', 'pochta');
-
         $this->loadTranslationsFrom(__DIR__ . '/lang/en/pochta.php', 'pochta');
+        $this->loadMigrationsFrom(__DIR__ . '/migrations');
     }
 
     /**
