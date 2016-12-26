@@ -24,6 +24,11 @@ class Tracking
     private static $barcode = '';
 
     /**
+     * @var int
+     */
+    private static $max_codes = 3000;
+
+    /**
      * Получение данных по одному треку.
      *
      * @author  Andrey Helldar <helldar@ai-rus.com>
@@ -138,5 +143,30 @@ class Tracking
                 'password' => config('pochta.api_password'),
             ],
         ];
+    }
+
+    /**
+     * Режим Пакетного доступа позволяет отслеживать сразу несколько отправлений в одном запросе.
+     * Запрос может содержать до 3000 почтовых идентификаторов отправлений.
+     *
+     * @author  Andrey Helldar <helldar@ai-rus.com>
+     * @version 2016-12-27
+     * @since   1.0
+     *
+     * @param array $barcodes
+     *
+     * @return string
+     */
+    public static function more($barcodes = [])
+    {
+        if (!is_array($barcodes)) {
+            return ResponseController::error(3);
+        }
+
+        if (sizeof($barcodes) > static::$max_codes) {
+            return ResponseController::error(2);
+        }
+
+        return ResponseController::error(3);
     }
 }
