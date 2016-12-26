@@ -7,4 +7,6 @@
 return [
     0 => 'Unauthorized.',
     1 => 'Information on the administration is temporarily unavailable.',
+    2 => 'Too many parameters',
+    3 => 'Unknown error',
 ];
