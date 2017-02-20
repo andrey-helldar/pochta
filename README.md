@@ -15,7 +15,6 @@ Package for working with API Russian Post.
 
 <p align="center">
 <a href="https://github.com/andrey-helldar/pochta"><img src="https://img.shields.io/scrutinizer/g/andrey-helldar/pochta.svg?style=flat-square" alt="Quality Score" /></a>
-<a href="https://www.versioneye.com/php/andrey-helldar:pochta/dev-master"><img src="https://www.versioneye.com/php/andrey-helldar:pochta/dev-master/badge?style=flat-square" alt="Dependency Status" /></a>
 <a href="https://styleci.io/repos/82571643"><img src="https://styleci.io/repos/82571643/shield" alt="StyleCI" /></a>
 <a href="https://php-eye.com/package/andrey-helldar/pochta"><img src="https://php-eye.com/badge/andrey-helldar/pochta/tested.svg?style=flat-square" alt="PHP-Eye" /></a>
 </p>
