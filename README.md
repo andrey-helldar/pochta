@@ -2,6 +2,8 @@
 
 Package for working with API Russian Post.
 
+![pochta ru](https://cloud.githubusercontent.com/assets/10347617/23131256/ab7305e8-f7cc-11e6-85e5-0a0223c5955d.jpg)
+
 <p align="center">
 <a href="https://travis-ci.org/andrey-helldar/pochta"><img src="https://travis-ci.org/andrey-helldar/pochta.svg?branch=master&style=flat-square" alt="Build Status" /></a>
 <a href="https://packagist.org/packages/andrey-helldar/pochta"><img src="https://img.shields.io/packagist/dt/andrey-helldar/pochta.svg?style=flat-square" alt="Total Downloads" /></a>
