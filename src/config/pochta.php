@@ -10,36 +10,37 @@
  * @see     https://tracking.pochta.ru/request
  *
  * @author  Andrey Helldar <helldar@ai-rus.com>
- * @version 2016-12-26
- * @since   1.0
  *
+ * @version 2016-12-26
+ *
+ * @since   1.0
  * @link    https://tracking.pochta.ru/specification
  */
-return [
-    /**
+return array(
+    /*
      * Адрес для Единичного доступа.
      */
-    'api_url_one'     => 'https://tracking.russianpost.ru/rtm34?wsdl',
+    'api_url_one' => 'https://tracking.russianpost.ru/rtm34?wsdl',
 
-    /**
+    /*
      * Логин для доступа к API Сервиса отслеживания.
      * Может быть получен в разделе Настройки доступа.
      *
      * @link https://tracking.pochta.ru/access-settings
      */
-    'api_login'       => env('POCHTA_LOGIN'),
+    'api_login' => env('POCHTA_LOGIN'),
 
-    /**
+    /*
      * Пароль для доступа к API Сервиса отслеживания.
      * Может быть получен в разделе Настройки доступа.
      *
      * @link https://tracking.pochta.ru/access-settings
      */
-    'api_password'    => env('POCHTA_PASSWORD'),
+    'api_password' => env('POCHTA_PASSWORD'),
 
-    /**
+    /*
      * Рекомендуется выполнять первое обращение за ответом по билету не ранее, чем через 15 минут от момента выдачи билета.
      * В случае неготовности результата повторные обращения по тому же билету следует выполнять не чаще, чем 1 раз в 15 минут.
      */
     'tickets_timeout' => 15,
-];
+);

@@ -1,13 +1,13 @@
 <?php
 /**
  * @author  Andrey Helldar <helldar@ai-rus.com>
+ *
  * @version 2016-12-27
+ *
  * @since   1.0
  */
-
 namespace Helldar\Pochta;
 
-use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
