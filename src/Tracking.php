@@ -1,10 +1,11 @@
 <?php
 /**
  * @author  Andrey Helldar <helldar@ai-rus.com>
+ *
  * @version 2016-12-26
+ *
  * @since   1.0
  */
-
 namespace Helldar\Pochta;
 
 use Helldar\Pochta\Controllers\ResponseController;
@@ -13,8 +14,6 @@ use Helldar\Pochta\Controllers\ResponseController;
  * Class Tracking
  *
  * @link    https://www.pochta.ru/support/business/api
- *
- * @package Helldar\Pochta
  */
 class Tracking
 {
@@ -32,9 +31,10 @@ class Tracking
      * Получение данных по одному треку.
      *
      * @author  Andrey Helldar <helldar@ai-rus.com>
-     * @version 2016-12-27
-     * @since   1.0
      *
+     * @version 2016-12-27
+     *
+     * @since   1.0
      * @link    https://tracking.pochta.ru/specification
      *
      * @param $barcode
@@ -50,7 +50,7 @@ class Tracking
         }
 
         try {
-            $soap   = static::soap();
+            $soap = static::soap();
             $result = $soap->getOperationHistory(new \SoapParam(static::paramsOne(), 'OperationHistoryRequest'));
 
             return ResponseController::success($result->OperationHistoryData->historyRecord);
@@ -65,7 +65,9 @@ class Tracking
      * Валидация трека.
      *
      * @author  Andrey Helldar <helldar@ai-rus.com>
+     *
      * @version 2016-12-26
+     *
      * @since   1.0
      *
      * @return bool
@@ -77,7 +79,7 @@ class Tracking
         }
 
         static::$barcode = mb_convert_encoding(trim(static::$barcode), 'UTF-8');
-        $strlen          = mb_strlen(static::$barcode, 'UTF-8');
+        $strlen = mb_strlen(static::$barcode, 'UTF-8');
 
         return $strlen === 13 || $strlen === 14;
     }
@@ -86,76 +88,80 @@ class Tracking
      * Вызов к API вынесен в отдельный метод.
      *
      * @author  Andrey Helldar <helldar@ai-rus.com>
+     *
      * @version 2016-12-27
+     *
      * @since   1.0
      *
      * @return \SoapClient
      */
     private static function soap()
     {
-        return new \SoapClient(config('pochta.api_url_one'), [
-            'trace'        => 1,
+        return new \SoapClient(config('pochta.api_url_one'), array(
+            'trace' => 1,
             'soap_version' => SOAP_1_2,
-        ]);
+        ));
     }
 
     /**
      * Параметры.
      *
      * @author  Andrey Helldar <helldar@ai-rus.com>
+     *
      * @version 2016-12-26
+     *
      * @since   1.0
      *
      * @return array
      */
     private static function paramsOne()
     {
-        return [
-            /**
+        return array(
+            /*
              * Содержит элементы Barcode, MessageType, Language.
              */
-            'OperationHistoryRequest' => [
-                /**
+            'OperationHistoryRequest' => array(
+                /*
                  * Идентификатор регистрируемого почтового отправления в одном из форматов:
                  * - внутрироссийский, состоящий из 14 символов (цифровой);
                  * - международный, состоящий из 13 символов (буквенно-цифровой) в формате S10.
                  */
-                'Barcode'     => static::$barcode,
-                /**
+                'Barcode' => static::$barcode,
+                /*
                  * Тип сообщения. Возможные значения:
                  *    0 - история операций для отправления;
                  *    1 - история операций для заказного уведомления по данному отправлению.
                  */
                 'MessageType' => '0',
-                /**
+                /*
                  * Язык, на котором должны возвращаться названия операций/атрибутов и сообщения об ошибках.
                  * Допустимые значения:
                  *     RUS – использовать русский язык (используется по умолчанию);
                  *     ENG – использовать английский язык.
                  */
-                'Language'    => 'RUS',
-            ],
-            /**
+                'Language' => 'RUS',
+            ),
+            /*
              * Содержит элементы login и password.
              * Атрибут soapenv:mustUnderstand элемента AuthorizationHeader должен содержать значение 1.
              */
-            'AuthorizationHeader'     => [
-                /**
+            'AuthorizationHeader' => array(
+                /*
                  * Логин для доступа к API Сервиса отслеживания.
                  * Может быть получен в разделе Настройки доступа.
                  *
                  * @link https://tracking.pochta.ru/access-settings
                  */
-                'login'    => config('pochta.api_login'),
-                /**
+                'login' => config('pochta.api_login'),
+                /*
                  * Пароль для доступа к API Сервиса отслеживания.
                  * Может быть получен в разделе Настройки доступа.
                  *
                  * @link https://tracking.pochta.ru/access-settings
                  */
                 'password' => config('pochta.api_password'),
-            ],
-        ];
+            ),
+        );
     }
 
     /**
@@ -163,14 +169,16 @@ class Tracking
      * Запрос может содержать до 3000 почтовых идентификаторов отправлений.
      *
      * @author  Andrey Helldar <helldar@ai-rus.com>
+     *
      * @version 2016-12-27
+     *
      * @since   1.0
      *
      * @param array $barcodes
      *
      * @return string
      */
-    public static function moreSend($barcodes = [])
+    public static function moreSend($barcodes = array())
     {
         if (!is_array($barcodes)) {
             return ResponseController::error(3);
@@ -180,7 +188,7 @@ class Tracking
             return ResponseController::error(2);
         }
 
-        $soap   = static::soap();
+        $soap = static::soap();
         $result = $soap->getTicket(new \SoapParam(static::paramsMore(), ''));
     }
 
@@ -188,58 +196,60 @@ class Tracking
      * Параметры для пакетного запроса.
      *
      * @author  Andrey Helldar <helldar@ai-rus.com>
+     *
      * @version 2016-12-27
+     *
      * @since   1.0
      *
      * @return array
      */
     private static function paramsMore()
     {
-        return [
-            /**
+        return array(
+            /*
              * Содержит элементы Barcode, MessageType, Language.
              */
-            'OperationHistoryRequest' => [
-                /**
+            'OperationHistoryRequest' => array(
+                /*
                  * Идентификатор регистрируемого почтового отправления в одном из форматов:
                  * - внутрироссийский, состоящий из 14 символов (цифровой);
                  * - международный, состоящий из 13 символов (буквенно-цифровой) в формате S10.
                  */
-                'Barcode'     => static::$barcode,
-                /**
+                'Barcode' => static::$barcode,
+                /*
                  * Тип сообщения. Возможные значения:
                  *    0 - история операций для отправления;
                  *    1 - история операций для заказного уведомления по данному отправлению.
                  */
                 'MessageType' => '0',
-                /**
+                /*
                  * Язык, на котором должны возвращаться названия операций/атрибутов и сообщения об ошибках.
                  * Допустимые значения:
                  *     RUS – использовать русский язык (используется по умолчанию);
                  *     ENG – использовать английский язык.
                  */
-                'Language'    => 'RUS',
-            ],
-            /**
+                'Language' => 'RUS',
+            ),
+            /*
              * Содержит элементы login и password.
              * Атрибут soapenv:mustUnderstand элемента AuthorizationHeader должен содержать значение 1.
              */
-            'AuthorizationHeader'     => [
-                /**
+            'AuthorizationHeader' => array(
+                /*
                  * Логин для доступа к API Сервиса отслеживания.
                  * Может быть получен в разделе Настройки доступа.
                  *
                  * @link https://tracking.pochta.ru/access-settings
                  */
-                'login'    => config('pochta.api_login'),
-                /**
+                'login' => config('pochta.api_login'),
+                /*
                  * Пароль для доступа к API Сервиса отслеживания.
                  * Может быть получен в разделе Настройки доступа.
                  *
                  * @link https://tracking.pochta.ru/access-settings
                  */
                 'password' => config('pochta.api_password'),
-            ],
-        ];
+            ),
+        );
     }
 }
