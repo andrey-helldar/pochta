@@ -2,21 +2,14 @@
 
 Package for working with API Russian Post.
 
-![pochta ru](https://cloud.githubusercontent.com/assets/10347617/23131256/ab7305e8-f7cc-11e6-85e5-0a0223c5955d.jpg)
+![pochta](https://user-images.githubusercontent.com/10347617/40198163-44f3f40c-5a1e-11e8-9467-7328ccfe34f0.png)
 
 <p align="center">
-<a href="https://travis-ci.org/andrey-helldar/pochta"><img src="https://travis-ci.org/andrey-helldar/pochta.svg?branch=master&style=flat-square" alt="Build Status" /></a>
-<a href="https://packagist.org/packages/andrey-helldar/pochta"><img src="https://img.shields.io/packagist/dt/andrey-helldar/pochta.svg?style=flat-square" alt="Total Downloads" /></a>
-<a href="https://packagist.org/packages/andrey-helldar/pochta"><img src="https://poser.pugx.org/andrey-helldar/pochta/v/stable?format=flat-square" alt="Latest Stable Version" /></a>
-<a href="https://packagist.org/packages/andrey-helldar/pochta"><img src="https://poser.pugx.org/andrey-helldar/pochta/v/unstable?format=flat-square" alt="Latest Unstable Version" /></a>
-<a href="https://github.com/andrey-helldar/pochta"><img src="https://poser.pugx.org/andrey-helldar/pochta/license?format=flat-square" alt="License" /></a>
-</p>
-
-
-<p align="center">
-<a href="https://github.com/andrey-helldar/pochta"><img src="https://img.shields.io/scrutinizer/g/andrey-helldar/pochta.svg?style=flat-square" alt="Quality Score" /></a>
-<a href="https://styleci.io/repos/82571643"><img src="https://styleci.io/repos/82571643/shield" alt="StyleCI" /></a>
-<a href="https://php-eye.com/package/andrey-helldar/pochta"><img src="https://php-eye.com/badge/andrey-helldar/pochta/tested.svg?style=flat-square" alt="PHP-Eye" /></a>
+    <a href="https://styleci.io/repos/82571643"><img src="https://styleci.io/repos/82571643/shield" alt="StyleCI" /></a>
+    <a href="https://packagist.org/packages/andrey-helldar/pochta"><img src="https://img.shields.io/packagist/dt/andrey-helldar/pochta.svg?style=flat-square" alt="Total Downloads" /></a>
+    <a href="https://packagist.org/packages/andrey-helldar/pochta"><img src="https://poser.pugx.org/andrey-helldar/pochta/v/stable?format=flat-square" alt="Latest Stable Version" /></a>
+    <a href="https://packagist.org/packages/andrey-helldar/pochta"><img src="https://poser.pugx.org/andrey-helldar/pochta/v/unstable?format=flat-square" alt="Latest Unstable Version" /></a>
+    <a href="LICENSE"><img src="https://poser.pugx.org/andrey-helldar/pochta/license?format=flat-square" alt="License" /></a>
 </p>
 
 
