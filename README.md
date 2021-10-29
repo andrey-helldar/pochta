@@ -2,7 +2,7 @@
 
 Package for working with API Russian Post.
 
-![pochta](https://user-images.githubusercontent.com/10347617/40198163-44f3f40c-5a1e-11e8-9467-7328ccfe34f0.png)
+<img src="https://preview.dragon-code.pro/andrey-helldar/russian-post.svg?brand=laravel" alt="Russian Post"/>
 
 <p align="center">
     <a href="https://styleci.io/repos/82571643"><img src="https://styleci.io/repos/82571643/shield" alt="StyleCI" /></a>
@@ -65,3 +65,4 @@ echo \Helldar\Pochta\Tracking::one('XX123456789123');
 ## Copyright and License
 
 Sitemap was written by Andrey Helldar for the Laravel Framework 5.3 or later, and is released under the MIT License. See the LICENSE file for details.
+
